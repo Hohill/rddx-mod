@@ -1,10 +1,11 @@
 {
   "name": "rddx-mod",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "module loader for REPL drive development",
   "main": "lib/index.js",
   "scripts": {
-    "test": "export DEBUG='rddx-mod' && ./node_modules/.bin/mocha -t 5000"
+    "test": "export DEBUG='rddx-mod' && ./node_modules/.bin/mocha -t 5000",
+    "prepublish": "npm test"
   },
   "repository": {
     "type": "git",

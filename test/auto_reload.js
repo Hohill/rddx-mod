@@ -15,10 +15,10 @@ const Mod = require('../');
 const utils = require('lei-utils');
 
 // init
-let MOD_DIR = path.resolve(os.tmpDir(), Date.now() + '_mods');
+let MOD_DIR = path.resolve(os.tmpDir(), Date.now() + Math.random() + '_mods');
 fse.copySync(path.resolve(__dirname, 'mods'), MOD_DIR);
 
-describe('rddx-mod', function () {
+describe('auto reload', function () {
 
   const mod = Mod({
     path: MOD_DIR,
