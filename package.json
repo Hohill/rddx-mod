@@ -1,0 +1,36 @@
+{
+  "name": "rddx-mod",
+  "version": "0.0.1",
+  "description": "module loader for REPL drive development",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "export DEBUG='rddx-mod' && ./node_modules/.bin/mocha -t 5000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leizongmin/rddx-mod.git"
+  },
+  "keywords": [
+    "hotreload",
+    "module",
+    "repl",
+    "development"
+  ],
+  "author": "Zongmin Lei <leizongmin@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leizongmin/rddx-mod/issues"
+  },
+  "homepage": "https://github.com/leizongmin/rddx-mod#readme",
+  "engines": {
+    "node": ">= 4.0.0"
+  },
+  "devDependencies": {
+    "fs-extra": "^0.26.2",
+    "lei-utils": "^1.0.9",
+    "mocha": "^2.3.4"
+  },
+  "dependencies": {
+    "debug": "^2.2.0"
+  }
+}
