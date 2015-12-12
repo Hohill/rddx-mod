@@ -1,3 +1,26 @@
+[![NPM version][npm-image]][npm-url]
+[![build status][travis-image]][travis-url]
+[![Test coverage][coveralls-image]][coveralls-url]
+[![Gittip][gittip-image]][gittip-url]
+[![David deps][david-image]][david-url]
+[![node version][node-image]][node-url]
+[![npm download][download-image]][download-url]
+
+[npm-image]: https://img.shields.io/npm/v/rddx-mod.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/rddx-mod
+[travis-image]: https://img.shields.io/travis/leizongmin/rddx-mod.svg?style=flat-square
+[travis-url]: https://travis-ci.org/leizongmin/rddx-mod
+[coveralls-image]: https://img.shields.io/coveralls/leizongmin/rddx-mod.svg?style=flat-square
+[coveralls-url]: https://coveralls.io/r/leizongmin/rddx-mod?branch=master
+[gittip-image]: https://img.shields.io/gittip/leizongmin.svg?style=flat-square
+[gittip-url]: https://www.gittip.com/leizongmin/
+[david-image]: https://img.shields.io/david/leizongmin/rddx-mod.svg?style=flat-square
+[david-url]: https://david-dm.org/leizongmin/rddx-mod
+[node-image]: https://img.shields.io/badge/node.js-%3E=_0.10-green.svg?style=flat-square
+[node-url]: http://nodejs.org/download/
+[download-image]: https://img.shields.io/npm/dm/rddx-mod.svg?style=flat-square
+[download-url]: https://npmjs.org/package/rddx-mod
+
 # rddx-mod
 module loader for REPL drive development
 
