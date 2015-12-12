@@ -110,4 +110,29 @@ describe('not reload', function () {
 
   });
 
+  it('destroy', function () {
+
+    mod.destroy();
+
+    assert.throws(function () {
+      mod('a');
+    }, Mod.ModHasBeenDestroyedError);
+
+    assert.throws(function () {
+      mod.register('a', './a');
+    }, Mod.ModHasBeenDestroyedError);
+
+    assert.throws(function () {
+      mod.unregister('a');
+    }, Mod.ModHasBeenDestroyedError);
+
+    assert.throws(function () {
+      mod.destroy();
+    }, Mod.ModHasBeenDestroyedError);
+
+    assert.equal(mod._cache, null);
+    assert.equal(mod._options, null);
+
+  });
+
 });

@@ -59,6 +59,9 @@ mod.unregister('a');
 // use module
 mod('a').hello();
 mod('a', 'hello')();
+
+// unwatch all files and destroy mod instance
+mod.destroy();
 ```
 
 ## License
