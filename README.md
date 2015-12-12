@@ -18,8 +18,8 @@ const Mod = require('rddx-mod');
 
 let mod = Mod({
   path: __dirname,   // module files base path
-  reload: true,      // set to true to auto reload module when it has changed. default to false
-  delay: 100,        // when module was changed, auto reload it after a while. default to 100ms
+  reload: true,      // set to true to auto reload module when it has been changed. default to false
+  delay: 100,        // when module has been changed, auto reload it after a while. default to 100ms
 });
 
 // register modules
@@ -29,6 +29,9 @@ mod.register('b', './b');
 // register third-part package
 // mod.register('name', 'package');
 mod.register('express', 'express');
+
+// unregister module, and remove cache
+mod.unregister('a');
 
 // use module
 mod('a').hello();

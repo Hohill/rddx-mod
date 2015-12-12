@@ -86,4 +86,16 @@ describe('not reload', function () {
 
   });
 
+  it('unregister', function () {
+
+    mod.unregister('a');
+
+    assert.throws(function () {
+      mod('a', 'name');
+    }, Error);
+
+    assert.equal(mod('b').name, 'I am B');
+
+  });
+
 });
