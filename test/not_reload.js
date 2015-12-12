@@ -57,19 +57,19 @@ describe('not reload', function () {
 
   });
 
-  it('prop not exists, should throws Error', function () {
+  it('prop not exists, should throws ModuleHasNoPropertyError', function () {
 
     assert.throws(function () {
       mod('a', 'ooxx');
-    }, Error);
+    }, Mod.ModuleHasNoPropertyError);
 
     assert.throws(function () {
       mod('b', 'ooxx');
-    }, Error);
+    }, Mod.ModuleHasNoPropertyError);
 
     assert.throws(function () {
       mod('utils', 'ooxx');
-    }, Error);
+    }, Mod.ModuleHasNoPropertyError);
 
   });
 
@@ -92,9 +92,21 @@ describe('not reload', function () {
 
     assert.throws(function () {
       mod('a', 'name');
-    }, Error);
+    }, Mod.RequireModuleError);
 
     assert.equal(mod('b').name, 'I am B');
+
+  });
+
+  it('module does not exists, should throws RequireModuleError', function () {
+
+    assert.throws(function () {
+      mod('c');
+    }, Mod.RequireModuleError);
+
+    assert.throws(function () {
+      mod('d');
+    }, Mod.RequireModuleError);
 
   });
 
