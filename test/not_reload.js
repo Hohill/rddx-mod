@@ -25,6 +25,10 @@ describe('not reload', function () {
     reload: false,
   });
 
+  mod.on('register', function (name) {
+    assert.ok(name === 'a' || name === 'b' || name === 'utils');
+  });
+
   mod.register('a', './a');
   mod.register('b', './b');
   mod.register('utils', 'lei-utils');
@@ -107,6 +111,22 @@ describe('not reload', function () {
     assert.throws(function () {
       mod('d');
     }, Mod.RequireModuleError);
+
+  });
+
+  it('custom events', function (done) {
+
+    const A = Math.random();
+    const B = Date.now();
+
+    mod.on('hahaha', function (a, b) {
+      assert.equal(A, a);
+      assert.equal(B, b);
+      done();
+    });
+
+    mod.emit('hahaha', A, B);
+    mod.emit('xxxxx', B, A);
 
   });
 

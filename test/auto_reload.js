@@ -26,6 +26,10 @@ describe('auto reload', function () {
     delay: 50,
   });
 
+  mod.on('register', function (name) {
+    assert.ok(name === 'a' || name === 'b' || name === 'utils');
+  });
+
   mod.register('a', './a');
   mod.register('b', './b');
   mod.register('utils', 'lei-utils');
@@ -76,12 +80,19 @@ describe('auto reload', function () {
 
   it('file changed', function (done) {
 
+    let counter = 0;
+    mod.on('reload', function (name, file) {
+      assert.equal(name, 'a');
+      counter++;
+    });
+
     fs.writeFileSync(path.resolve(MOD_DIR, 'a.js'), fs.readFileSync(path.resolve(MOD_DIR, 'b.js')));
     assert.equal(mod('a').name, 'I am A');
     assert.equal(mod('b').name, 'I am B');
     setTimeout(function () {
       assert.equal(mod('a').name, 'I am B');
       assert.equal(mod('b').name, 'I am B');
+      assert.equal(counter, 1);
       done();
     }, 200);
 
@@ -108,6 +119,22 @@ describe('auto reload', function () {
     assert.throws(function () {
       mod('d');
     }, Mod.RequireModuleError);
+
+  });
+
+  it('custom events', function (done) {
+
+    const A = Math.random();
+    const B = Date.now();
+
+    mod.on('hahaha', function (a, b) {
+      assert.equal(A, a);
+      assert.equal(B, b);
+      done();
+    });
+
+    mod.emit('hahaha', A, B);
+    mod.emit('xxxxx', B, A);
 
   });
 

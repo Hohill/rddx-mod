@@ -60,6 +60,12 @@ mod.unregister('a');
 mod('a').hello();
 mod('a', 'hello')();
 
+// events
+mod.on('reload', function (name, file) {
+  // name: registered name
+  // file: absolute file path
+});
+
 // unwatch all files and destroy mod instance
 mod.destroy();
 ```

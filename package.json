@@ -1,6 +1,6 @@
 {
   "name": "rddx-mod",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "module loader for REPL drive development",
   "main": "lib/index.js",
   "scripts": {
