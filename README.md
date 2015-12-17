@@ -56,11 +56,14 @@ mod.register('express', 'express');
 // unregister module, and remove cache
 mod.unregister('a');
 
+// reload module although it has not changed
+mod.reload('a');
+
 // use module
 mod('a').hello();
 mod('a', 'hello')();
 
-// events
+// emit "reload" event when module has been reloaded
 mod.on('reload', function (name, file) {
   // name: registered name
   // file: absolute file path
