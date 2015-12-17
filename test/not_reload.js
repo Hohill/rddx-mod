@@ -47,6 +47,14 @@ describe('not reload', function () {
 
     assert.equal(mod('utils').md5('ok'), utils.md5('ok'));
 
+    assert.equal(mod.get('a').name, 'I am A');
+    assert.equal(mod.get('b').name, 'I am B');
+
+    assert.equal(mod.get('a').hello(), 'Hello, I am A');
+    assert.equal(mod.get('b').hello(), 'Hello, I am B');
+
+    assert.equal(mod.get('utils').md5('ok'), utils.md5('ok'));
+
   });
 
   it('get module prop', function () {
