@@ -37,7 +37,7 @@ describe('not reload', function () {
   // console.log(mod('b'));
   // console.log(mod('utils'));
 
-  it('normal', function () {
+  it('get module', function () {
 
     assert.equal(mod('a').name, 'I am A');
     assert.equal(mod('b').name, 'I am B');
@@ -49,7 +49,7 @@ describe('not reload', function () {
 
   });
 
-  it('prop', function () {
+  it('get module prop', function () {
 
     assert.equal(mod('a', 'name'), 'I am A');
     assert.equal(mod('b', 'name'), 'I am B');
@@ -87,6 +87,26 @@ describe('not reload', function () {
       assert.equal(mod('b').name, 'I am B');
       done();
     }, 500);
+
+  });
+
+  it('after file changed, manually reload', function () {
+
+    let counter = 0;
+    mod.on('reload', function (name, file) {
+      assert.equal(name, 'a');
+      counter++;
+    });
+
+    assert.equal(mod('a').name, 'I am A');
+    assert.equal(mod('b').name, 'I am B');
+
+    mod.reload('a');
+
+    assert.equal(mod('a').name, 'I am B');
+    assert.equal(mod('b').name, 'I am B');
+
+    assert.equal(counter, 1);
 
   });
 

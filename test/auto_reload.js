@@ -38,7 +38,7 @@ describe('auto reload', function () {
   // console.log(mod('b'));
   // console.log(mod('utils'));
 
-  it('normal', function () {
+  it('get module', function () {
 
     assert.equal(mod('a').name, 'I am A');
     assert.equal(mod('b').name, 'I am B');
@@ -50,7 +50,7 @@ describe('auto reload', function () {
 
   });
 
-  it('prop', function () {
+  it('get module prop', function () {
 
     assert.equal(mod('a', 'name'), 'I am A');
     assert.equal(mod('b', 'name'), 'I am B');
@@ -78,7 +78,7 @@ describe('auto reload', function () {
 
   });
 
-  it('file changed', function (done) {
+  it('file changed, auto reload', function (done) {
 
     let counter = 0;
     mod.on('reload', function (name, file) {
