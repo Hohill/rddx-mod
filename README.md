@@ -26,7 +26,7 @@ module loader for REPL drive development
 
 ## Installation
 
-For Node v4.0.0 or above:
+**For Node v4.0.0 or above**:
 
 ```bash
 $ npm install rddx-mod --save
