@@ -109,10 +109,16 @@ describe('not reload', function () {
     assert.equal(mod('a').name, 'I am A');
     assert.equal(mod('b').name, 'I am B');
 
+    let na = mod('a', 'number');
+    let nb = mod('b', 'number');
+
     mod.reload('a');
 
     assert.equal(mod('a').name, 'I am B');
     assert.equal(mod('b').name, 'I am B');
+
+    assert.notEqual(mod('a', 'number'), na);
+    assert.equal(mod('b', 'number'), nb);
 
     assert.equal(counter, 1);
 
